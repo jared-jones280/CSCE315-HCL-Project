@@ -4,7 +4,7 @@ var path = require('path');
 
 http.createServer(function (request, response) {
     console.log('request starting...');
-
+    response.setHeader('Access-Control-Allow-Origin', '*');
     var filePath = '.' + request.url;
     if (filePath == './')
         filePath = './index.html';

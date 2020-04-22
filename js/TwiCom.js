@@ -22,17 +22,38 @@ twttr.widgets.createTweet(
   }
 );*/
 
-const contentPane1 = document.getElementById('tweetTest')
+//const contentPane1 = document.getElementById('tweetTest')
+
+
+window.onload = (function(){
+
+  var tweet = document.getElementById("tweet1");
+  var id = tweet.getAttribute("tweetID");
+
+  
+
+});
 
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET','http://localhost:8127', true)
+request.open('GET','http://localhost:8127/Twitter.json', true)
 request.onload = function() {
-  console.log(request.status)
+  //console.log(request.status)
   // Begin accessing JSON data here
   if(request.status == 200){
+    
+    console.log(this.response);
     var data = JSON.parse(this.response)
+    console.log(data.statuses)
+    for(i in data.statuses){
+      console.log(i);
+      var tweet = document.getElementById("tweet"+i);
+      console.log(data.statuses[i].id_str)
+      tweet.setAttribute("tweetID",data.statuses[i].id_str)
+      var id = tweet.getAttribute("tweetID");
+      twttr.widgets.createTweet(id, tweet)
+    }
   }
   //
   //twttr.widgets.load()

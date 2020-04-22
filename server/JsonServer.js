@@ -6,7 +6,7 @@ var jsonData;
 
 http.createServer(function (request, response) {
     console.log('request starting...');
-
+    response.setHeader('Access-Control-Allow-Origin', '*');
     var filePath = '.' + request.url;
     if (filePath == './')
         filePath = './index.html';
@@ -15,9 +15,9 @@ http.createServer(function (request, response) {
     var contentType = 'application/json';
     response.writeHead(200, { 'Content-Type': contentType });
     twttr = require('./TwitterMash')
-    twttr.twitHandle.get('search/tweets', { q: 'covid19', count: 100 }, function(err,data,res) {
+    twttr.twitHandle.get('search/tweets', { q: 'result_type=popular', count: 3 }, function(err,data,res) {
         console.log(data)
-        console.log(Object.getOwnPropertyNames(data))
+        //console.log(Object.getOwnPropertyNames(data))
         response.end(JSON.stringify(data));
     })
     
