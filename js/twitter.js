@@ -27,7 +27,7 @@ function trending(){
     var request = new XMLHttpRequest()
 
     // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET','http://localhost:8127/$Trending', true)
+  request.open('GET','http://immense-harbor-19732.herokuapp.com/twitter/$Trending', true)
   request.onload = function() {
     //console.log(request.status)
     // Begin accessing JSON data here
@@ -58,7 +58,7 @@ function twitSearch(searchTerm){
   var request = new XMLHttpRequest()
 
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET','http://localhost:8127/'+searchTerm, true)
+  request.open('GET','http://immense-harbor-19732.herokuapp.com/twitter/'+searchTerm, true)
   request.onload = function() {
     //console.log(request.status)
     // Begin accessing JSON data here
