@@ -1,6 +1,6 @@
 function redditPopularLoad(){
 var request = new XMLHttpRequest();
-var numposts = '12';
+var numposts = '30';
 var searchTerm = document.getElementById('searchBut').value;
 var fixedSearchTerm = encodeURIComponent(searchTerm);
 
