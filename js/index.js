@@ -15,7 +15,7 @@ function getSearchValue(){
     twitSearch(inputVal);
     redditPopularLoad();
     executeSearchYT(inputVal);
-    redditLocalStore();
+    //redditLocalStore();
     
     // Displaying the value
 }
@@ -29,8 +29,8 @@ function refreshPage(){
     count = 3;
     sessionStorage.setItem('clickCount', count);
   }
+  youtubeRefresh();
   redditRefresh();
-  //YouTubeRefresh();
   //TwiterRefresh();
   console.log("count : " + count);
   count++;
@@ -62,18 +62,4 @@ function refreshPage(){
 function init(){
   redditPopularLoad();
   //redditLocalStore();
-}
-
-// window.onbeforeunload = function(){
-//   sessionStorage.setItem("origin", window.location.href);
-// }
-
-// window.onload = function(){
-//   if(window.location.href == sessionStorage.getItem("origin")){
-//       sessionStorage.removeItem('clickCount');
-//   }
-// }
-
-function YouTubeRefresh(){
-
 }

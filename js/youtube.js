@@ -121,3 +121,27 @@
 		  document.getElementById('description'+pageNo.toString(10)).innerHTML = sessionStorage.getItem('description'+pageNo.toString(10));
 	  }
   }*/
+
+function youtubeRefresh(){
+	var postcount = sessionStorage.getItem("clickCount");
+	for(var i = 0; i < 3; i++){
+		var name = "player"+postcount;
+		const div1 = document.createElement('div');
+		div1.className = 'col-md-4';
+		var inhtml = '<div class="card mb-4 shadow-sm">';
+		inhtml +=  '<div id = ' + name +'></div>' ;
+		inhtml += '<div class="card-body">';
+		var descrip = sessionStorage.getItem('description'+postcount);
+		inhtml += '<div id = description' + postcount + '>' + sessionStorage.getItem('description'+postcount)+'</div>';
+		inhtml += '<div class="d-flex justify-content-between align-items-center"></div></div></div>';postcount
+		div1.innerHTML = inhtml;
+		document.getElementById('row').appendChild(div1); 
+		var vid = sessionStorage.getItem(name);
+		playerArray.push(new YT.Player(name, {
+			height: '225',
+			width: '348',
+			videoId: sessionStorage.getItem(name)
+		}));
+		postcount++;
+	}
+}

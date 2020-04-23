@@ -232,20 +232,17 @@ function init(){
     
 function redditRefresh(){
 
-    var c = sessionStorage.getItem("clickCount");
+    var postcount = sessionStorage.getItem("clickCount");
     for(var i = 0; i < 3; i++){
-        var name = "reddit"+c;
+        var name = "reddit"+postcount;
         const div1 = document.createElement('div');
         div1.className = 'col-md-4';
-
         post = sessionStorage.getItem(name.toString());
         var inhtml = '<div class="card mb-4 shadow-sm"><div class="card-body">';
         inhtml +=  post;
         inhtml += '<div class="d-flex justify-content-between align-items-center"></div></div></div>';
-        //inhtml += post;
-        //inhtml += '<div class="d-flex justify-content-between align-items-center"></div></div></div>';
         div1.innerHTML = inhtml;
         document.getElementById('row').appendChild(div1); 
-        c++;
+        postcount++;
     }
 }
