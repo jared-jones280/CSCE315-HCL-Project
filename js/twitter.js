@@ -1,26 +1,4 @@
-/*window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));
-
-twttr.widgets.createTweet(
-  '20',
-  document.getElementById('twitterEmmbed'),
-  {
-  }
-);*/
 
 //const contentPane1 = document.getElementById('tweetTest')
 function trending(){
@@ -33,13 +11,13 @@ function trending(){
     // Begin accessing JSON data here
     if(request.status == 200){
       
-      console.log(this.response);
+      //console.log(this.response);
       var data = JSON.parse(this.response)
-      console.log(data.statuses)
+      //console.log(data.statuses)
       for(i in data.statuses){
-        console.log(i);
+        //console.log(i);
         var tweet = document.getElementById("tweet"+i);
-        console.log(data.statuses[i].id_str)
+        //console.log(data.statuses[i].id_str)
         tweet.setAttribute("tweetID",data.statuses[i].id_str)
         var id = tweet.getAttribute("tweetID");
         twttr.widgets.createTweet(id, tweet)
@@ -58,7 +36,40 @@ function twitSearch(searchTerm){
   var request = new XMLHttpRequest()
 
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET','http://immense-harbor-19732.herokuapp.com/twitter/'+searchTerm, true)
+  request.open('GET','http://immense-harbor-19732.herokuapp.com/twitter/'+searchTerm+'/5', true)
+  request.onload = function() {
+    //console.log(request.status)
+    // Begin accessing JSON data here
+    if(request.status == 200){
+      
+      //console.log(this.response);
+      var data = JSON.parse(this.response)
+      //console.log(data.statuses)
+      for(i in data.statuses){
+        //console.log(i);
+        var tweet = document.getElementById("tweet"+i);
+        tweet.innerHTML = "";
+        //console.log(data.statuses[i].id_str)
+        tweet.setAttribute("tweetID",data.statuses[i].id_str)
+        var id = tweet.getAttribute("tweetID");
+        twttr.widgets.createTweet(id, tweet)
+      }
+    }
+    //
+    //twttr.widgets.load()
+    //console.log(this.response)
+  }
+  // Send request
+  request.send()
+}
+
+function twitRefresh(){
+  var container = getElementById("contentDeck");
+
+  var request = new XMLHttpRequest()
+
+  // Open a new connection, using the GET request on the URL endpoint
+  request.open('GET','http://immense-harbor-19732.herokuapp.com/twitter/'+searchTerm+'/5', true)
   request.onload = function() {
     //console.log(request.status)
     // Begin accessing JSON data here
@@ -68,9 +79,10 @@ function twitSearch(searchTerm){
       var data = JSON.parse(this.response)
       console.log(data.statuses)
       for(i in data.statuses){
-        console.log(i);
-        var tweet = document.getElementById("tweet"+i);
-        tweet.innerHTML = "";
+        //console.log(i);
+        //var tweet = document.getElementById("tweet"+i);
+        //tweet.innerHTML = "";
+        container.innerHTML+='<div class="col-md-4"><div class="card mb-4 shadow-sm">'
         console.log(data.statuses[i].id_str)
         tweet.setAttribute("tweetID",data.statuses[i].id_str)
         var id = tweet.getAttribute("tweetID");
@@ -83,4 +95,6 @@ function twitSearch(searchTerm){
   }
   // Send request
   request.send()
+
+
 }
