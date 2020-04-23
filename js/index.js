@@ -22,21 +22,26 @@ function getSearchValue(){
 
 function refreshPage(){
   var count;
-  if(window.SessionStorage.getItem("clickCount")){
-    count = window.SessionStorage.getItem('clickCount');
+  if(sessionStorage.getItem("clickCount") != null){
+    count = sessionStorage.getItem('clickCount');
   }else{
-    count = 0;
+    sessionStorage.clear();
+    count = 3;
+    sessionStorage.setItem('clickCount', count);
   }
   redditRefresh();
   //YouTubeRefresh();
   //TwiterRefresh();
+  console.log("count : " + count);
   count++;
-  window.SessionStorage.setItem('clickCount', count);
+  count++;
+  count++;
+  sessionStorage.setItem('clickCount', count);
 }
 
 
 //Get the button:
-mybutton = document.getElementById("myBtn");
+// mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
 //window.onscroll = function() {scrollFunction()};
@@ -56,4 +61,19 @@ mybutton = document.getElementById("myBtn");
 //}
 function init(){
   redditPopularLoad();
+  //redditLocalStore();
+}
+
+// window.onbeforeunload = function(){
+//   sessionStorage.setItem("origin", window.location.href);
+// }
+
+// window.onload = function(){
+//   if(window.location.href == sessionStorage.getItem("origin")){
+//       sessionStorage.removeItem('clickCount');
+//   }
+// }
+
+function YouTubeRefresh(){
+
 }
