@@ -4,13 +4,13 @@ var numposts = '3';
 var searchTerm = document.getElementById('searchBut').value;
 var fixedSearchTerm = encodeURIComponent(searchTerm);
 
-if(searchTerm=''){
+if(searchTerm==''){
     //This one to see trending / popular posts
-    request.open('GET','https://www.reddit.com/r/popular/.json?limit='+numposts,true);
+    request.open('GET','https://www.reddit.com/r/popular/.json?limit='+numposts);
 }
 else{
     //This one for searched content (put search (can include spaces) in searchTerm)
-    request.open('GET','https://www.reddit.com/r/all/search.json?limit='+numposts+'&q='+fixedSearchTerm+'&restrict_sr=on&include_over_18=on&sort=relevance&t=all');
+    request.open('GET','https://www.reddit.com/r/all/search.json?limit='+numposts+'&q='+fixedSearchTerm+'&sort=relevance&t=all');
 }
 
 request.onload = function(){
@@ -23,6 +23,7 @@ request.onload = function(){
                 var subTitle = "reddit"+i+"sub";
                 var link = "https://reddit.com"+redditPopularPosts.data.children[i].data.permalink;
                 var links= "https://reddit.com/r/"+redditPopularPosts.data.children[i].data.subreddit;
+                document.getElementById(divTitle).innerHTML = "";
                 document.getElementById(divTitle).innerHTML += '<a id ='+postTitle+'></a>';
                 document.getElementById(postTitle).href = link;
                 document.getElementById(postTitle).innerText = redditPopularPosts.data.children[i].data.title;
@@ -40,7 +41,8 @@ request.onload = function(){
                     }
                 }
                 else if(redditPopularPosts.data.children[i].data.post_hint =="link"){
-                    document.getElementById(subTitle).innerHTML+="<br><a href ="+redditPopularPosts.data.children[i].data.url+">Link to Source</a>";
+                    document.getElementById(subTitle).innerHTML+="<br><a id = link"+i+" href ="+redditPopularPosts.data.children[i].data.url+"></a>";
+                    document.getElementById("link"+i).innerText = "Link to Source";
 
                 }
                 else if(redditPopularPosts.data.children[i].data.post_hint =="hosted:video"){
