@@ -1,6 +1,6 @@
 function redditPopularLoad(){
 var request = new XMLHttpRequest();
-var numposts = '30';
+var numposts = '3';
 var searchTerm = document.getElementById('searchBut').value;
 var fixedSearchTerm = encodeURIComponent(searchTerm);
 
@@ -23,33 +23,33 @@ request.onload = function(){
                 var subTitle = "reddit"+i+"sub";
                 var link = "https://reddit.com"+redditPopularPosts.data.children[i].data.permalink;
                 var links= "https://reddit.com/r/"+redditPopularPosts.data.children[i].data.subreddit;
-                document.getElementById(divTitle).innerHTML += '<a id ='+postTitle+'>reddittitle</a>';
+                document.getElementById(divTitle).innerHTML += '<a id ='+postTitle+'></a>';
                 document.getElementById(postTitle).href = link;
                 document.getElementById(postTitle).innerText = redditPopularPosts.data.children[i].data.title;
-                document.getElementById(divTitle).insertAdjacentHTML("afterend","<br>");
-                document.getElementById(divTitle).insertAdjacentHTML("afterend","<a id ="+subTitle+">redditsub</a>");
+                document.getElementById(divTitle).innerHTML+="<br>";
+                document.getElementById(divTitle).innerHTML+="<a id ="+subTitle+"></a>";
                 document.getElementById(subTitle).href = links;
                 document.getElementById(subTitle).innerText = 'r/'+redditPopularPosts.data.children[i].data.subreddit;
 
                 if(redditPopularPosts.data.children[i].data.post_hint == "image"){
                     if(redditPopularPosts.data.children[i].data.thumbnail != "image"){
-                        document.getElementById(subTitle).insertAdjacentHTML("afterend","<br><img src="+redditPopularPosts.data.children[i].data.thumbnail+">");
+                        document.getElementById(subTitle).innerHTML+="<br><img src="+redditPopularPosts.data.children[i].data.thumbnail+">";
                     }
                     else{
-                      document.getElementById(subTitle).insertAdjacentHTML("afterend","<br><img src="+redditPopularPosts.data.children[i].data.url+">");
+                      document.getElementById(subTitle).innerHTML+="<br><img src="+redditPopularPosts.data.children[i].data.url+">";
                     }
                 }
                 else if(redditPopularPosts.data.children[i].data.post_hint =="link"){
-                    document.getElementById(subTitle).insertAdjacentHTML("afterend","<br><a href ="+redditPopularPosts.data.children[i].data.url+">Link to Source</a>");
+                    document.getElementById(subTitle).innerHTML+="<br><a href ="+redditPopularPosts.data.children[i].data.url+">Link to Source</a>";
 
                 }
                 else if(redditPopularPosts.data.children[i].data.post_hint =="hosted:video"){
                     //document.getElementById(subTitle).insertAdjacentHTML("afterend","<h4>vid</h4>");
-                    document.getElementById(subTitle).insertAdjacentHTML("afterend","<br><iframe src ="+redditPopularPosts.data.children[i].data.media.reddit_video.fallback_url+"></iframe>")
+                    document.getElementById(subTitle).innerHTML+="<br><iframe src ="+redditPopularPosts.data.children[i].data.media.reddit_video.fallback_url+"></iframe>";
                 }
                 else if(redditPopularPosts.data.children[i].data.post_hint =="rich:video"){
                     //document.getElementById(subTitle).insertAdjacentHTML("afterend",'<h4>rich:video</h4>');
-                    document.getElementById(subTitle).insertAdjacentHTML("afterend","<br><div id=iframeWrapper>"+decodeURI(redditPopularPosts.data.children[i].data.media.oembed.html).replace("&lt;","<").replace("&gt;",">").replace("iframe "+"iframe class=\"redditVideo\" ")+"</div>");
+                    document.getElementById(subTitle).innerHTML+= "<br><div id=iframeWrapper>"+decodeURI(redditPopularPosts.data.children[i].data.media.oembed.html).replace("&lt;","<").replace("&gt;",">").replace("iframe "+"iframe class=\"redditVideo\" ")+"</div>";
                 }
                 else{
                     //document.getElementById(subTitle).insertAdjacentHTML("afterend","<h4>none</h4>");
