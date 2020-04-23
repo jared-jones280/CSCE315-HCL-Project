@@ -11,13 +11,13 @@ function trending(){
     // Begin accessing JSON data here
     if(request.status == 200){
       
-      console.log(this.response);
+      //console.log(this.response);
       var data = JSON.parse(this.response)
-      console.log(data.statuses)
+      //console.log(data.statuses)
       for(i in data.statuses){
-        console.log(i);
+        //console.log(i);
         var tweet = document.getElementById("tweet"+i);
-        console.log(data.statuses[i].id_str)
+        //console.log(data.statuses[i].id_str)
         tweet.setAttribute("tweetID",data.statuses[i].id_str)
         var id = tweet.getAttribute("tweetID");
         twttr.widgets.createTweet(id, tweet)
@@ -42,14 +42,14 @@ function twitSearch(searchTerm){
     // Begin accessing JSON data here
     if(request.status == 200){
       
-      console.log(this.response);
+      //console.log(this.response);
       var data = JSON.parse(this.response)
-      console.log(data.statuses)
+      //console.log(data.statuses)
       for(i in data.statuses){
-        console.log(i);
+        //console.log(i);
         var tweet = document.getElementById("tweet"+i);
         tweet.innerHTML = "";
-        console.log(data.statuses[i].id_str)
+        //console.log(data.statuses[i].id_str)
         tweet.setAttribute("tweetID",data.statuses[i].id_str)
         var id = tweet.getAttribute("tweetID");
         twttr.widgets.createTweet(id, tweet)
