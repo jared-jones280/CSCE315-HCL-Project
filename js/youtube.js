@@ -116,8 +116,8 @@
 		  playerArray.push(new YT.Player('player'+pageNo.toString(10), {
 						height: '225',
 						width: '348',
-						videoId: localStorage.'player'+pageNo.toString(10)
+						videoId: localStorage.getItem('player'+pageNo.toString(10));
 		  }));
-		  document.getElementById('description'+pageNo.toString(10)).innerHTML = localStorage.'description'+pageNo.toString(10);
+		  document.getElementById('description'+pageNo.toString(10)).innerHTML = localStorage.getItem('description'+pageNo.toString(10));
 	  }
   }
