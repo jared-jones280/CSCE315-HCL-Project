@@ -22,8 +22,8 @@
       }*/
 
       function onPlayerReady(event) {
-      //  event.target.playVideo();
-	  //  execute();
+        //event.target.playVideo();
+	    //execute();
       }
 	  
 	  function init() {
@@ -107,7 +107,7 @@
               },
               function(err) { console.error("Execute error", err); });
   }
-  
+  /*
   function loadNextYT(pageNo){
 	  if(pageNo > 27){
 		  pageNo = 27;
@@ -120,4 +120,4 @@
 		  }));
 		  document.getElementById('description'+pageNo.toString(10)).innerHTML = SessionStorage.getItem('description'+pageNo.toString(10));
 	  }
-  }
+  }*/
