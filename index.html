@@ -7,8 +7,9 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
     <title>TwiTuDit</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+    <link rel="icon" 
+      type="image/png" 
+      href="css/favion.png">
 
     
     <!-- Bootstrap core CSS -->
@@ -84,7 +85,7 @@
 <main role="main">
   <div class = "padding"></div><!--empty div to add pading above content tiles-->
   <div class="album py-5 bg-light">
-    <div class="container">
+    <div class="container" id = 'container'>
 
       <div class="row">
         <div class="col-md-4">
@@ -175,8 +176,10 @@
             <div class="card-body" id="tweet2" tweetID="00"></div>
           </div>
         </div>
-
       </div>
+    </div>
+    <div style="text-align: center; border: 0px solid">
+      <button type="button" class="btn btn-primary btn-lg" id="refreshBut" onclick="refreshPage();">Load More</button>
     </div>
   </div>
 

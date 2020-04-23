@@ -1,3 +1,5 @@
+
+
 function redditPopularLoad(){
 var request = new XMLHttpRequest();
 var numposts = '30';
@@ -89,6 +91,7 @@ request.send();
 
 function init(){
     redditPopularLoad();
+    redditLocalStore();
 }
 
 
@@ -177,4 +180,25 @@ request.onload = function(){
 }
 
 request.send();
+}
+
+
+    
+function redditRefresh(){
+    try{
+        var name = "reddit" + window.localStorage.getItem("");
+    }
+    catch{
+        console.log('cannot get local storage clickcount');
+    }
+    const div = document.createElement('div');
+    div.className = 'col-md-4';
+    try{
+        var post = window.localStorage.getItem(name);
+    }
+    catch{
+        console.log('cannot get local storage reddit post');
+    }  
+    div.innerHTML = post;
+    document.getElementById('container').appendChild(div);
 }

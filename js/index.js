@@ -15,9 +15,26 @@ function getSearchValue(){
     twitSearch(inputVal);
     redditPopularLoad();
     executeSearchYT(inputVal);
+    redditLocalStore();
     
     // Displaying the value
 }
+
+function refreshPage(){
+  var count;
+  if(window.localStorage.getItem("clickCount")){
+    count = window.localStorage.getItem('clickCount');
+  }else{
+    count = 0;
+  }
+  redditRefresh();
+  //YouTubeRefresh();
+  //TwiterRefresh();
+  console.log("count: " + count);
+  count++;
+  window.localStorage.setItem('clickCount', count);
+}
+
 
 //Get the button:
 mybutton = document.getElementById("myBtn");
