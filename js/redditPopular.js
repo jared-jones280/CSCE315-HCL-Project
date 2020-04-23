@@ -90,7 +90,7 @@ function redditPopularLoad(){
                         var link = "https://reddit.com"+redditPopularPosts.data.children[i].data.permalink;
                         var links= "https://reddit.com/r/"+redditPopularPosts.data.children[i].data.subreddit;
                         var innerHTMLDat = "";
-                        innerHTMLDat= '<a id ='+postTitle+ 'href ='+link+'>'+redditPopularPosts.data.children[i].data.title+'</a>';
+                        innerHTMLDat= "<a id ="+postTitle+" href ="+link+">"+redditPopularPosts.data.children[i].data.title+"</a>";
                         innerHTMLDat+="<br>";
                         innerHTMLDat+="<a id ="+subTitle+" href = "+links+">r/"+redditPopularPosts.data.children[i].data.subreddit+"</a>"
                         
