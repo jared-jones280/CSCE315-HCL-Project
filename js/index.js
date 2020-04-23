@@ -22,17 +22,16 @@ function getSearchValue(){
 
 function refreshPage(){
   var count;
-  if(window.localStorage.getItem("clickCount")){
-    count = window.localStorage.getItem('clickCount');
+  if(window.SessionStorage.getItem("clickCount")){
+    count = window.SessionStorage.getItem('clickCount');
   }else{
     count = 0;
   }
   redditRefresh();
   //YouTubeRefresh();
   //TwiterRefresh();
-  console.log("count: " + count);
   count++;
-  window.localStorage.setItem('clickCount', count);
+  window.SessionStorage.setItem('clickCount', count);
 }
 
 

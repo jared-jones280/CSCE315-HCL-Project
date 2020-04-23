@@ -66,8 +66,8 @@
 					document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.localized.description;
 				}
 				for(i=3;i<30;i++){
-					localStorage.setItem('player'+i.toString(10), response.result.items[i].id);
-					localStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.localized.description);
+					SessionStorage.setItem('player'+i.toString(10), response.result.items[i].id);
+					SessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.localized.description);
 				}
               },
               function(err) { console.error("Execute error of YT js execute", err); });
@@ -101,8 +101,8 @@
 					document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.description;
 				}
 				for(i=3;i<30;i++){
-					localStorage.setItem('player'+i.toString(10), response.result.items[i].id.videoId);
-					localStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description);
+					SessionStorage.setItem('player'+i.toString(10), response.result.items[i].id.videoId);
+					SessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description);
 				}
               },
               function(err) { console.error("Execute error", err); });
@@ -116,8 +116,8 @@
 		  playerArray.push(new YT.Player('player'+pageNo.toString(10), {
 						height: '225',
 						width: '348',
-						videoId: localStorage.getItem('player'+pageNo.toString(10));
+						videoId: SessionStorage.getItem('player'+pageNo.toString(10));
 		  }));
-		  document.getElementById('description'+pageNo.toString(10)).innerHTML = localStorage.getItem('description'+pageNo.toString(10));
+		  document.getElementById('description'+pageNo.toString(10)).innerHTML = SessionStorage.getItem('description'+pageNo.toString(10));
 	  }
   }
