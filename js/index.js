@@ -12,8 +12,10 @@ function getSearchValue(){
     var inputVal = document.getElementById('searchBut').value;
     //alert(inputVal);
     //alert(inputVal);
+    twitSearch(inputVal);
     redditPopularLoad();
-	executeSearchYT(inputVal);	
+    executeSearchYT(inputVal);
+    
     // Displaying the value
 }
 

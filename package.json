@@ -1,0 +1,18 @@
+{
+  "name": "twitudit",
+  "version": "1.0.0",
+  "description": "social media mashup of reddit twitter and youtube",
+  "main": "js/TwitterMash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.tamu.edu/xuweileontan/CSCE315-HCL-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
