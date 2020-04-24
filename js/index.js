@@ -47,11 +47,19 @@ function refreshPage(){
 
 function zoomButton(){
   var but = document.getElementById("zoomBut");
-  console.log("here the code")
-  //if(but.checked()){
+  console.log(but.getAttribute('data-state'))
+  if(but.getAttribute('data-state')=='off'){
+    but.setAttribute('data-state','on');
+    but.className = "btn btn-outline-success"
+    console.log('button is now '+ but.getAttribute('data-state'))
     document.getElementById("stylesheet").setAttribute('href', "css/zoom.css")
-  //}
-  // else{
+  }
+  else{
+    but.setAttribute('data-state','off');
+    but.className = "btn btn-outline-secondary"
+    console.log('button is now '+but.getAttribute('data-state'))
+    document.getElementById("stylesheet").setAttribute('href', "css/media.css")
+  }
   //   document.getElementById("stylesheet").setAttribute('href', "css/zoom.css")
   // }
 }
