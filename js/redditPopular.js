@@ -38,7 +38,7 @@ function redditPopularLoad(){
                                 document.getElementById(subTitle).innerHTML+="<br><img src="+redditPopularPosts.data.children[i].data.thumbnail+">";
                             }
                             else{
-                            document.getElementById(subTitle).innerHTML+="<br><img src="+redditPopularPosts.data.children[i].data.url+">";
+                            	innerHTMLDat+="<br><iframe height = \"400\" width = \"600\" src="+redditPopularPosts.data.children[i].data.url+"></iframe>";
                             }
                         }
                         else if(redditPopularPosts.data.children[i].data.post_hint =="link"){
@@ -100,7 +100,7 @@ function redditPopularLoad(){
                                 innerHTMLDat+="<br><img src="+redditPopularPosts.data.children[i].data.thumbnail+">"
                             }
                             else{
-                            innerHTMLDat+="<br><img src="+redditPopularPosts.data.children[i].data.url+">";
+                            innerHTMLDat+="<br><iframe height = \"400\" width = \"600\" src="+redditPopularPosts.data.children[i].data.url+"></iframe>";
                             }
                         }
                         else if(redditPopularPosts.data.children[i].data.post_hint =="link"){
