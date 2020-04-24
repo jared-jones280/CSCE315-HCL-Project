@@ -25,7 +25,6 @@ function refreshPage(){
   if(sessionStorage.getItem("clickCount") != null){
     count = sessionStorage.getItem('clickCount');
   }else{
-    sessionStorage.clear();
     count = 3;
     sessionStorage.setItem('clickCount', count);
   }
