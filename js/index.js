@@ -31,7 +31,7 @@ function refreshPage(){
   }
   youtubeRefresh();
   redditRefresh();
-  //TwiterRefresh();
+  twitterRefresh();
   console.log("count : " + count);
   count++;
   count++;
