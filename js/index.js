@@ -18,6 +18,7 @@ function getSearchValue(){
       parentNode.removeChild(document.getElementById("tobecleared"));
     }
 
+    sessionStorage.clear();
     twitSearch(inputVal);
     redditPopularLoad();
     executeSearchYT(inputVal);
@@ -28,7 +29,7 @@ function getSearchValue(){
 
 function refreshPage(){
   var count;
-  if(sessionStorage.getItem("clickCount") != null){
+  if(sessionStorage.getItem("clickCount") != null && sessionStorage.getItem("clickCount") != 0){
     count = sessionStorage.getItem('clickCount');
   }else{
     count = 3;
