@@ -12,6 +12,12 @@ function getSearchValue(){
     var inputVal = document.getElementById('searchBut').value;
     //alert(inputVal);
     //alert(inputVal);
+    var count = sessionStorage.getItem("clickCount");
+    for(var i = 0; i < (count-3)*3; i++){
+      var parentNode = document.getElementById("tobecleared").parentNode
+      parentNode.removeChild(document.getElementById("tobecleared"));
+    }
+
     twitSearch(inputVal);
     redditPopularLoad();
     executeSearchYT(inputVal);

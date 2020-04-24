@@ -140,6 +140,7 @@ function twitterRefresh(){
       var name = "twitter"+postcount;
       const div1 = document.createElement('div');
       div1.className = 'col-md-4';
+      div1.id = "tobecleared";
       //post = sessionStorage.getItem(name.toString());
       const div2 = document.createElement('div');
       div2.className = 'card mb-4 shadow-sm';

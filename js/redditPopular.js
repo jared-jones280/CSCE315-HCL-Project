@@ -237,6 +237,7 @@ function redditRefresh(){
         var name = "reddit"+postcount;
         const div1 = document.createElement('div');
         div1.className = 'col-md-4';
+        div1.id = "tobecleared"
         post = sessionStorage.getItem(name.toString());
         var inhtml = '<div class="card mb-4 shadow-sm"><div class="card-body">';
         inhtml +=  post;

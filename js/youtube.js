@@ -138,6 +138,7 @@ function youtubeRefresh(){
 		var name = "player"+postcount;
 		const div1 = document.createElement('div');
 		div1.className = 'col-md-4';
+		div1.id = "tobecleared"
 		var inhtml = '<div class="card mb-4 shadow-sm">';
 		inhtml +=  '<div id = ' + name +'></div>' ;
 		inhtml += '<div class="card-body">';
