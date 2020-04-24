@@ -45,6 +45,17 @@ function refreshPage(){
   sessionStorage.setItem('clickCount', count);
 }
 
+function zoomButton(){
+  var but = document.getElementById("zoomBut");
+  console.log("here the code")
+  //if(but.checked()){
+    document.getElementById("stylesheet").setAttribute('href', "css/zoom.css")
+  //}
+  // else{
+  //   document.getElementById("stylesheet").setAttribute('href', "css/zoom.css")
+  // }
+}
+
 
 //Get the button:
 // mybutton = document.getElementById("myBtn");

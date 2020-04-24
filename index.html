@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link href="css/media.css" rel="stylesheet" id = "stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -33,36 +34,22 @@
 <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
+<!-- <style>
+  .col-md-4 {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      .col-md-4 {
-        transition: transform .2s; /* Animation */
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
+  .col-md-4:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 5;
+  }
   
-      .col-md-4:hover {
-        transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-        z-index: 5;
-      }
-    </style>
+</style> -->
+
     <!-- Custom styles for this template -->
-    <link href="css/media.css" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -85,7 +72,6 @@
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" id="searchBut" type="text" placeholder="Search TwiTuDit" aria-label="Search">
-            <script src="js/index.js"></script>
             <button type = 'button' class="btn btn-outline-light" onclick="getSearchValue();">Search </button>
           </form>
         </div>
@@ -182,7 +168,7 @@
 </main>
 
 <footer class="text-muted">
-  <div class = "text-center"><button type="button" class="btn btn-outline-secondary" data-toggle="button"id="zoomBut">Zoom<img src = "css/zoom.png"></img></button></div>
+  <div class = "text-center"><button type="button" class="btn btn-outline-secondary" data-toggle="button"id="zoomBut" onclick="zoomButton();">Zoom<img src = "css/zoom.png"></img></button></div>
   <div class="container">
     
     <p class="float-right">
@@ -199,6 +185,7 @@
       <!--
       <script src="js/redditPopular.js"></script>
       -->
+      <script src="js/index.js"></script>
       <script src="js/redditPopular.js"onload="init()"></script>
       <script src="js/twitter.js"onload='twitSearch("$Trending")'></script>
 </html>

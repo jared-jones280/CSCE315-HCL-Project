@@ -59,3 +59,14 @@ iframe{
   #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
   }
+  .col-md-4 {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .col-md-4:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 5;
+  }
