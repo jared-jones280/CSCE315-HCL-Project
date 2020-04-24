@@ -63,7 +63,7 @@
 				   width: '348',
 				   videoId: response.result.items[i].id
 			   }));
-			   document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.localized.description.substring(0,150)+'...';
+			   document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.localized.description.substring(0,50)+'...';
 		   }
 		   for(i=3;i<30;i++){
 				playerArray.push(new YT.Player('player'+i.toString(10), {
@@ -72,7 +72,7 @@
 					videoId: response.result.items[i].id
 				}));
 			   sessionStorage.setItem('player'+i.toString(10), response.result.items[i].id);
-			   sessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description.substring(0,150));
+			   sessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description.substring(0,50));
 		   }
 		 },
 		 function(err) { console.error("Execute error", err); });
@@ -103,7 +103,7 @@ function executeSearchYT(searchTerm) {
 				   width: '348',
 				   videoId: response.result.items[i].id.videoId
 			   }));
-			   document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.description.substring(0,150)+'...';
+			   document.getElementById('description'+i.toString(10)).innerHTML = response.result.items[i].snippet.description.substring(0,50)+'...';
 		   }
 		   for(i=3;i<30;i++){
 				playerArray.push(new YT.Player('player'+i.toString(10), {
@@ -112,7 +112,7 @@ function executeSearchYT(searchTerm) {
 					videoId: response.result.items[i].videoId
 				}));
 				sessionStorage.setItem('player'+i.toString(10), response.result.items[i].id.videoId);
-				sessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description.substring(0,150));
+				sessionStorage.setItem('description'+i.toString(10), response.result.items[i].snippet.description.substring(0,50));
 			}
 		 },
 		 function(err) { console.error("Execute error", err); });
