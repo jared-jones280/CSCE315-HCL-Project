@@ -73,7 +73,7 @@ function fillTweet(tweet,tweetNum){
   }
 
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET','http://twitudit.herokuapp.com/twitter/'+searchTerm+'/40', true)
+  request.open('GET','http://twitudit.herokuapp.com/twitter/'+searchTerm+'/300', true)
   request.onload = function() {
     //console.log(request.status)
     // Begin accessing JSON data here
